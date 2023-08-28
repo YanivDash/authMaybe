@@ -21,7 +21,7 @@ app.use(express.json());
 // used to enable Cross-Origin Resource Sharing (CORS),
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://comfy-lily-16b571.netlify.app"],
     methods: ["POST", "GET"],
     credentials: true,
   })
