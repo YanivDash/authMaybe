@@ -21,7 +21,7 @@ app.use(express.json());
 // used to enable Cross-Origin Resource Sharing (CORS),
 app.use(
   cors({
-    origin: ["https://creative-dieffenbachia-a373ae.netlify.app"],
+    origin: ["https://creative-dieffenbachia-a373ae.netlify.app/"],
     methods: ["POST", "GET"],
     credentials: true,
   })
@@ -46,7 +46,7 @@ const verifyUser = (req, res, next) => {
   }
 };
 
-app.get("/", verifyUser, (req, res) => {
+app.get("/", (req, res) => {
   return res.json({ Status: "success", name: req.name });
 });
 
