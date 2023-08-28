@@ -27,6 +27,14 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://creative-dieffenbachia-a373ae.netlify.app"
+  );
+  next();
+});
+
 // used to parse cookies sent by the client's browser and make them available in the req.cookies object
 app.use(cookieParser());
 
