@@ -31,10 +31,24 @@ app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
     "https://creative-dieffenbachia-a373ae.netlify.app"
+  ); // Replace with your specific origin
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, DELETE"
   );
-  next();
-});
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
 
+  // Handle preflight requests
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+  } else {
+    next();
+  }
+});
 // used to parse cookies sent by the client's browser and make them available in the req.cookies object
 app.use(cookieParser());
 
